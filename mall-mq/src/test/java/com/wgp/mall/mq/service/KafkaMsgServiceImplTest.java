@@ -1,26 +1,26 @@
-package com.wgp.mall.mq;
+package com.wgp.mall.mq.service;
 
 import javax.annotation.Resource;
 
-import com.wgp.mall.mq.service.KafkaMsgService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.wgp.mall.mq.MqApplication;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author gangpeng.wgp
- * @date 2023/7/1 上午12:15
+ * @date 2023/7/2 上午12:17
  */
-@RestController
-@RequestMapping("/mq")
-public class MqController {
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class KafkaMsgServiceImplTest extends MqApplication {
 
     @Resource
     private KafkaMsgService kafkaMsgService;
 
-    @RequestMapping("/send")
-    public String send(){
-
+    @Test
+    public void sendMsg(){
         for (int i = 0; i < 10; i++) {
 
             kafkaMsgService.sendMsg("WGP-ORDER", String.valueOf(i), "订单支付" + i);
@@ -32,9 +32,5 @@ public class MqController {
             }
 
         }
-
-        return "success";
     }
-
-
 }
