@@ -14,5 +14,4 @@ public interface StockService {
 
     Stock getStock(String skuCode);
 
-
 }

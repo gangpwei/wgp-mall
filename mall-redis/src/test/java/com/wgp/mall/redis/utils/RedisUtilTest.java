@@ -2,7 +2,7 @@ package com.wgp.mall.redis.utils;
 
 import javax.annotation.Resource;
 
-import com.wgp.mall.redis.service.ApplicationTest;
+import com.wgp.mall.redis.ApplicationTest;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

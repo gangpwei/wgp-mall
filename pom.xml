@@ -23,6 +23,7 @@
         <module>mall-order</module>
         <module>mall-elasticsearch</module>
         <module>mall-redis</module>
+        <module>mall-mq</module>
         <module>mall-web</module>
     </modules>
 
@@ -71,6 +72,12 @@
 
             <dependency>
                 <artifactId>mall-redis</artifactId>
+                <groupId>com.wgp</groupId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>mall-mq</artifactId>
                 <groupId>com.wgp</groupId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
