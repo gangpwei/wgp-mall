@@ -20,7 +20,6 @@ spring:
   shardingsphere:
     datasource:
       names: m1,m2
-
       m1:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -36,9 +35,11 @@ spring:
         password: 12345678
 
     sharding:
-      #真实表分布，分库，分表
+
       tables:
+        #订单表
         torder:
+
           #订单id生成策略，雪花算法
           key-generator:
             column: order_id
@@ -47,6 +48,7 @@ spring:
               worker:
                 id: 1
 
+          #真实表分布，分库，分表
           actual-data-nodes: m$->{1..2}.torder_$->{1..2}
 
           #inline分片策略
