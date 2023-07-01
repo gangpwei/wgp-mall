@@ -24,7 +24,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableDubbo(scanBasePackages = {"com.wgp.mall.service"})
+@EnableDubbo(scanBasePackages = {"com.wgp.mall.stock.service"})
 public class StockApplication {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(StockApplication.class, args);

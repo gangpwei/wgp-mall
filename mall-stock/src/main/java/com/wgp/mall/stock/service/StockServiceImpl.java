@@ -1,10 +1,7 @@
-package com.wgp.mall.service;
+package com.wgp.mall.stock.service;
 
-import java.util.List;
-
-import com.wgp.mall.model.Order;
 import com.wgp.mall.model.Stock;
-import com.wgp.mall.request.OrderQueryRequest;
+import com.wgp.mall.service.StockService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

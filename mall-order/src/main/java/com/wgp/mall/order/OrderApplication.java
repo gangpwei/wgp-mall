@@ -15,18 +15,18 @@
  * limitations under the License.
  */
 
-package com.wgp.mall.service;
+package com.wgp.mall.order;
 
-import java.io.File;
 import java.util.concurrent.CountDownLatch;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.system.ApplicationHome;
 
 @SpringBootApplication
-@EnableDubbo(scanBasePackages = {"com.wgp.mall.service"})
+@MapperScan("com.wgp.mall.order.mapper")
+@EnableDubbo(scanBasePackages = {"com.wgp.mall.order.service"})
 public class OrderApplication {
     public static void main(String[] args) throws Exception {
 

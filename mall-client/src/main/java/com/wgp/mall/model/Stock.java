@@ -5,6 +5,7 @@ package com.wgp.mall.model;
  * @date 2023/6/30 下午9:58
  */
 public class Stock {
+    Long stockId;
     private String skuCode;
     private String skuName;
     private Integer stockCount;
