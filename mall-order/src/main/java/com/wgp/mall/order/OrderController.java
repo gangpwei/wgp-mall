@@ -26,17 +26,29 @@ public class OrderController {
 
     @RequestMapping("/add")
     public String add(){
-        String skuCode = "123";
-        Order o = new Order();
-         o.setBuyerId(10L);
-         o.setGmtCreate(new Date());
-         o.setStatus("INIT");
-         o.setPrice(BigDecimal.valueOf(1000.10));
-         o.setSkuCode("sku_" + new Random().nextInt(1000));
-         o.setSkuName("商品_" + new Random().nextInt(1000));
-        o.setSkuCode(skuCode);
+        Order o = getOrder();
         Order order = orderService.createOrder(o);
         return order.toString();
+    }
+
+    @RequestMapping("/addAync")
+    public String addAync(){
+        Order o = getOrder();
+        Order order = orderService.createOrderAndAsyncReduceStock(o);
+        return order.toString();
+    }
+
+    private Order getOrder() {
+        String skuCode = "123";
+        Order o = new Order();
+        o.setBuyerId(10L);
+        o.setGmtCreate(new Date());
+        o.setStatus("INIT");
+        o.setPrice(BigDecimal.valueOf(1000.10));
+        o.setSkuCode("sku_" + new Random().nextInt(1000));
+        o.setSkuName("商品_" + new Random().nextInt(1000));
+        o.setSkuCode(skuCode);
+        return o;
     }
 
     @RequestMapping("/all")

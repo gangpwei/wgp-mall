@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.wgp.mall.order;
+package com.wgp.mall;
 
 import java.util.concurrent.CountDownLatch;
 

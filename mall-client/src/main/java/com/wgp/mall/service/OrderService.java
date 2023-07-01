@@ -13,6 +13,8 @@ public interface OrderService {
 
     Order createOrder(Order order);
 
+    Order createOrderAndAsyncReduceStock(Order order);
+
     Order getOrderById(Long orderId);
 
     List<Order> queryOrder(OrderQueryRequest request);

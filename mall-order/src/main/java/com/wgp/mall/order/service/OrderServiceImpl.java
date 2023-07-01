@@ -3,13 +3,17 @@ package com.wgp.mall.order.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
+import com.alibaba.fastjson.JSON;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Lists;
 import com.wgp.mall.model.Order;
+import com.wgp.mall.mq.service.KafkaMsgService;
 import com.wgp.mall.order.entity.Torder;
 import com.wgp.mall.order.mapper.OrderMapper;
 import com.wgp.mall.request.OrderQueryRequest;
@@ -34,11 +38,27 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderMapper orderMapper;
 
+    @Resource
+    private KafkaMsgService kafkaMsgService;
+
+    public static final String TOPIC_ORDER = "WGP-ORDER";
+
     @Override
     public Order createOrder(Order order) {
 
         orderMapper.insert(convertToDo(order));
         //stockService.reduceStock(order.getSkuCode(), 1);
+        LOGGER.info("createOrder:" + order);
+        return order;
+    }
+
+    @Override
+    public Order createOrderAndAsyncReduceStock(Order order) {
+
+        orderMapper.insert(convertToDo(order));
+
+        kafkaMsgService.sendMsg(TOPIC_ORDER, UUID.randomUUID().toString(), JSON.toJSONString(order));
+
         LOGGER.info("createOrder:" + order);
         return order;
     }
