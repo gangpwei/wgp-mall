@@ -13,6 +13,9 @@ dubbo:
     address: nacos://127.0.0.1:8851
 
 spring:
+  profiles:
+    active: dev
+
   #kafka消息
   kafka:
     bootstrap-servers: 127.0.0.1:9092
