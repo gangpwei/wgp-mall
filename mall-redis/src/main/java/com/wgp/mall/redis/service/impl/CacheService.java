@@ -3,6 +3,8 @@ package com.wgp.mall.redis.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
+import com.wgp.mall.common.log.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -21,6 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Component
+@Log(logInput = true, logOutput = false)
 public class CacheService {
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -178,6 +181,7 @@ public class CacheService {
     /**
      * 是否存在key
      */
+    @Log
     public Boolean hasKey(String key) {
         return redisTemplate.hasKey(key);
     }

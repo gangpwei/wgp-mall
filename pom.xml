@@ -25,6 +25,7 @@
         <module>mall-redis</module>
         <module>mall-mq</module>
         <module>mall-web</module>
+        <module>mall-common</module>
     </modules>
 
     <properties>
@@ -48,6 +49,12 @@
         <dependencies>
             <dependency>
                 <artifactId>mall-client</artifactId>
+                <groupId>com.wgp</groupId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>mall-common</artifactId>
                 <groupId>com.wgp</groupId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>

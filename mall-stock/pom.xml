@@ -18,6 +18,10 @@
             <groupId>com.wgp</groupId>
         </dependency>
 
+        <dependency>
+            <artifactId>mall-common</artifactId>
+            <groupId>com.wgp</groupId>
+        </dependency>
 
         <dependency>
             <artifactId>mall-mq</artifactId>
