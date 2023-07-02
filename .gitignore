@@ -1,5 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 */target/
+*../target/
 .idea/
 *.iml
 */logs/
+/openfeign/client-openfeign/target/
+/openfeign/*/target/
+/openfeign/*/*/target/
