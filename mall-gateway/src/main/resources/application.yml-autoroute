@@ -1,0 +1,21 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    # gateway的配置
+    gateway:
+      discovery:
+        locator:
+          #是否启动自动识别nacos服务, 自动为nacos微服务开头的url，转发到对应的服务上
+          #比如 http://localhost:8090/order-service/order/add -> http://localhost:8022/order/add
+          enabled: true
+          lower-case-service-id : true #自动路由时，路由的路径默认会使用大写ID，若想要使用小写ID，可将lowerCaseServiceId设置为true
+
+    #配置Nacos
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8851
+        username: nacos
+        password: nacos

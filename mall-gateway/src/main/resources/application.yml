@@ -1,0 +1,34 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    # gateway的配置
+    gateway:
+      #路由规则
+      routes:
+        - id: stock_route  # 路由的唯一标识，路由到stock
+          uri: lb://stock-service #需要转发的地址 lb: 使用nacos中的本地负载均衡策略  stock-service服务名
+          #断言规则 用于路由规则的匹配
+          predicates:
+            - Path=/stock-service/**
+            # http://localhost:8090/stock-service/stock/reduce/手机/1 路由到↓
+            # http://localhost:8021/stock-service/stock/reduce/手机/1
+          filters:
+#            - AddResponseHeader=X-Response-Foo, Bar
+
+            ## AuthorizeGatewayFilterFactory自定义过滤器配置，值为true需要验证授权，false不需要
+            # 不加token 返回401：http://localhost:8090/stock-service/stock/reduce/手机/1
+            # 加token 正常返回 返回401：http://localhost:8090/stock-service/stock/reduce/手机/1?token=88888
+            - Authorize=true
+
+            - StripPrefix=1  # 转发之前去掉第一层路径
+            # http://localhost:8020/stock/reduce/手机/1
+
+    #配置Nacos
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8851
+        username: nacos
+        password: nacos

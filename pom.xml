@@ -27,6 +27,7 @@
         <module>mall-web</module>
         <module>mall-common</module>
         <module>openfeign</module>
+        <module>mall-gateway</module>
     </modules>
 
     <properties>
