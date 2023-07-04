@@ -28,6 +28,8 @@
         <module>mall-common</module>
         <module>openfeign</module>
         <module>mall-gateway</module>
+        <module>mall-xxl-job</module>
+        <module>mall-xxl-job-admin</module>
     </modules>
 
     <properties>

@@ -1,0 +1,16 @@
+{
+  "test": true,
+  "maxLimit": 500,
+  "retryTimes": 1000,
+  "statusList":
+  [
+    "INIT"
+  ],
+  "taskTypeList":
+  [
+    "MY_TASK"
+  ],
+  "startIntervalMin": -11520,
+  "endIntervalMin": 0,
+  "needEndExpectFinishTime": false
+}
