@@ -4,6 +4,5 @@
 .idea/
 *.iml
 */logs/
-/openfeign/client-openfeign/target/
-/openfeign/*/target/
-/openfeign/*/*/target/
+/*/*/target/
+
