@@ -2,7 +2,7 @@ server:
   port: 8054
 spring:
   application:
-    name: tulingmall-search
+    name: mall-elasticsearch
 
 es:
   host: 127.0.0.1

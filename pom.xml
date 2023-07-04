@@ -19,18 +19,18 @@
 
     <modules>
         <module>mall-client</module>
+        <module>mall-common</module>
         <module>mall-stock</module>
         <module>mall-order</module>
-        <module>mall-elasticsearch</module>
-        <module>middleware/mall-redis</module>
-        <module>middleware/mall-mq</module>
         <module>mall-web</module>
-        <module>mall-common</module>
         <module>openfeign</module>
         <module>mall-gateway</module>
-        <module>mall-xxl-job</module>
-        <module>mall-xxl-job-admin</module>
-        <module>mall-mongodb</module>
+        <module>middleware/mall-elasticsearch</module>
+        <module>middleware/mall-redis</module>
+        <module>middleware/mall-mq</module>
+        <module>middleware/mall-mongodb</module>
+        <module>middleware/mall-xxl-job</module>
+        <module>middleware/mall-xxl-job-admin</module>
     </modules>
 
     <properties>
