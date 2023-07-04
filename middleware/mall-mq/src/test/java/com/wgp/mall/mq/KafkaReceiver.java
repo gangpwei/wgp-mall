@@ -1,4 +1,4 @@
-package com.wgp.mall.mq.service;
+package com.wgp.mall.mq;
 
 import java.util.Optional;
 
