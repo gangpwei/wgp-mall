@@ -29,16 +29,16 @@
                     <div class="input-group">
                         <span class="input-group-addon">订单状态</span>
                         <select class="form-control" id="status" >
-                            <option value="-1" >${I18n.system_all}</option>
-                            <option value="1" >INIT</option>
-                            <option value="0" >WAIT_SEND</option>
-                        </select>
+                            <option value="-1" >全部</option>
+                            <option value="0" >待发货</option>
+							<option value="1" >已发货</option>
+						</select>
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="input-group">
-                        <span class="input-group-addon">${I18n.user_username}</span>
-                        <input type="text" class="form-control" id="username" autocomplete="on" >
+                        <span class="input-group-addon">订单ID</span>
+                        <input type="text" class="form-control" id="orderId" autocomplete="on" >
                     </div>
                 </div>
 	            <div class="col-xs-1">
@@ -61,7 +61,7 @@
 					                  	<th name="skuCode" >商品编码</th>
                                         <th name="status" >订单状态</th>
 					                  	<th name="price" >价格</th>
-					                  	<th>${I18n.system_opt}</th>
+					                  	<th>操作</th>
 					                </tr>
 				                </thead>
 				                <tbody></tbody>
@@ -183,6 +183,6 @@
 <!-- DataTables -->
 <script src="${request.contextPath}/static/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="${request.contextPath}/static/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="${request.contextPath}/static/js/order.index.1.js"></script>
+<script src="${request.contextPath}/static/js/order.index.1.js?num=${num}"></script>
 </body>
 </html>

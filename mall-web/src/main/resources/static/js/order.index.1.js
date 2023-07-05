@@ -10,7 +10,7 @@ $(function() {
 			type:"post",
 	        data : function ( d ) {
 	        	var obj = {};
-                obj.ordername = $('#ordername').val();
+                obj.orderId = $('#orderId').val();
                 obj.status = $('#status').val();
 	        	obj.start = d.start;
 	        	obj.length = d.length;
@@ -62,8 +62,8 @@ $(function() {
 								// html
                                 tableData['key'+row.orderId] = row;
 								var html = '<p id="'+ row.orderId +'" >'+
-									'<button class="btn btn-warning btn-xs update" type="button">'+ I18n.system_opt_edit +'</button>  '+
-									'<button class="btn btn-danger btn-xs delete" type="button">'+ I18n.system_opt_del +'</button>  '+
+									'<button class="btn btn-warning btn-xs update" type="button">'+ '编辑' +'</button>  '+
+									'<button class="btn btn-danger btn-xs delete" type="button">'+ '删除' +'</button>  '+
 									'</p>';
 
 	                			return html;

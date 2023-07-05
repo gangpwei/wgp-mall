@@ -1,16 +1,13 @@
 package com.xxl.job.admin.controller.interceptor;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.xxl.job.admin.controller.annotation.PermissionLimit;
 import com.xxl.job.admin.core.model.XxlJobUser;
-import com.xxl.job.admin.core.util.I18nUtil;
-import com.xxl.job.admin.service.LoginService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * 权限拦截
@@ -20,8 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class PermissionInterceptor implements AsyncHandlerInterceptor {
 
-	@Resource
-	private LoginService loginService;
+	public static final String LOGIN_IDENTITY_KEY = "XXL_JOB_LOGIN_IDENTITY";
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -60,7 +56,7 @@ public class PermissionInterceptor implements AsyncHandlerInterceptor {
 		loginUser.setPermission("xxxx");
 
 
-		request.setAttribute(LoginService.LOGIN_IDENTITY_KEY, loginUser);
+		request.setAttribute(LOGIN_IDENTITY_KEY, loginUser);
 
 		return true;	// proceed with the next interceptor
 	}

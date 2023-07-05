@@ -1,17 +1,11 @@
 package com.xxl.job.admin.core.conf;
 
+import java.util.Arrays;
 
-import com.xxl.job.admin.core.scheduler.XxlJobScheduler;
-import com.xxl.job.admin.dao.*;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.util.Arrays;
 
 /**
  * xxl-job config
@@ -28,21 +22,17 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
     }
 
 
-    // ---------------------- XxlJobScheduler ----------------------
 
-    private XxlJobScheduler xxlJobScheduler;
 
     @Override
     public void afterPropertiesSet() throws Exception {
         adminConfig = this;
 
-        xxlJobScheduler = new XxlJobScheduler();
-        xxlJobScheduler.init();
+
     }
 
     @Override
     public void destroy() throws Exception {
-        xxlJobScheduler.destroy();
     }
 
 
@@ -67,22 +57,7 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
     @Value("${xxl.job.logretentiondays}")
     private int logretentiondays;
 
-    // dao, service
 
-    @Resource
-    private XxlJobLogDao xxlJobLogDao;
-    @Resource
-    private XxlJobInfoDao xxlJobInfoDao;
-    @Resource
-    private XxlJobRegistryDao xxlJobRegistryDao;
-    @Resource
-    private XxlJobGroupDao xxlJobGroupDao;
-    @Resource
-    private XxlJobLogReportDao xxlJobLogReportDao;
-    @Resource
-    private JavaMailSender mailSender;
-    @Resource
-    private DataSource dataSource;
 
 
 
@@ -120,34 +95,6 @@ public class XxlJobAdminConfig implements InitializingBean, DisposableBean {
             return -1;  // Limit greater than or equal to 7, otherwise close
         }
         return logretentiondays;
-    }
-
-    public XxlJobLogDao getXxlJobLogDao() {
-        return xxlJobLogDao;
-    }
-
-    public XxlJobInfoDao getXxlJobInfoDao() {
-        return xxlJobInfoDao;
-    }
-
-    public XxlJobRegistryDao getXxlJobRegistryDao() {
-        return xxlJobRegistryDao;
-    }
-
-    public XxlJobGroupDao getXxlJobGroupDao() {
-        return xxlJobGroupDao;
-    }
-
-    public XxlJobLogReportDao getXxlJobLogReportDao() {
-        return xxlJobLogReportDao;
-    }
-
-    public JavaMailSender getMailSender() {
-        return mailSender;
-    }
-
-    public DataSource getDataSource() {
-        return dataSource;
     }
 
 

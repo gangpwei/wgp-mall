@@ -45,7 +45,7 @@ public class OrderController {
     @ResponseBody
     public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int start,
                                         @RequestParam(required = false, defaultValue = "10") int length,
-                                        String username) {
+                                        String orderId) {
 
         // page list
         List<Order> list = new ArrayList<>();
@@ -63,8 +63,8 @@ public class OrderController {
 
         // package result
         Map<String, Object> maps = new HashMap<String, Object>();
-        maps.put("recordsTotal", list);		// 总记录数
-        maps.put("recordsFiltered", list);	// 过滤后的总记录数
+        maps.put("recordsTotal", 200);		// 总记录数
+        maps.put("recordsFiltered", 200);	// 过滤后的总记录数
         maps.put("data", list);  					// 分页列表
         return maps;
     }
