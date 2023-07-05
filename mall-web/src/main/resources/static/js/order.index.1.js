@@ -230,97 +230,97 @@ $(function() {
 
         $("#addModal .form input[name=skuCode]").parents('.form-group').show();
 	});
-	//
-    // // update status
-    // $("#updateModal .form input[name=status]").change(function () {
-    //     var status = $(this).val();
-    //     if (status == 1) {
-    //         $("#updateModal .form input[name=skuCode]").parents('.form-group').hide();
-    //     } else {
-    //         $("#updateModal .form input[name=skuCode]").parents('.form-group').show();
-    //     }
-    //     $("#updateModal .form input[name='skuCode']").prop("checked",false);
-    // });
-	//
-	// // update
-	// $("#order_list").on('click', '.update',function() {
-	//
-    //     var id = $(this).parent('p').attr("id");
-    //     var row = tableData['key'+id];
-	//
-	// 	// base data„
-	// 	$("#updateModal .form input[name='id']").val( row.id );
-	// 	$("#updateModal .form input[name='username']").val( row.username );
-	// 	$("#updateModal .form input[name='password']").val( '' );
-	// 	$("#updateModal .form input[name='status'][value='"+ row.status +"']").click();
-    //     var skuCodeArr = [];
-    //     if (row.skuCode) {
-    //         skuCodeArr = row.skuCode.split(",");
-	// 	}
-    //     $("#updateModal .form input[name='skuCode']").each(function () {
-    //         if($.inArray($(this).val(), skuCodeArr) > -1) {
-    //             $(this).prop("checked",true);
-    //         } else {
-    //             $(this).prop("checked",false);
-    //         }
-    //     });
-	//
-	// 	// show
-	// 	$('#updateModal').modal({backdrop: false, keyboard: false}).modal('show');
-	// });
-	// var updateModalValidate = $("#updateModal .form").validate({
-	// 	errorElement : 'span',
-    //     errorClass : 'help-block',
-    //     focusInvalid : true,
-	// 	highlight : function(element) {
-    //         $(element).closest('.form-group').addClass('has-error');
-    //     },
-    //     success : function(label) {
-    //         label.closest('.form-group').removeClass('has-error');
-    //         label.remove();
-    //     },
-    //     errorPlacement : function(error, element) {
-    //         element.parent('div').append(error);
-    //     },
-    //     submitHandler : function(form) {
-	//
-    //         var skuCodeArr =[];
-    //         $("#updateModal .form input[name=skuCode]:checked").each(function(){
-    //             skuCodeArr.push($(this).val());
-    //         });
-	//
-    //         var paramData = {
-    //             "orderId": $("#updateModal .form input[name=orderId]").val(),
-    //             "username": $("#updateModal .form input[name=username]").val(),
-    //             "password": $("#updateModal .form input[name=password]").val(),
-    //             "status": $("#updateModal .form input[name=status]:checked").val(),
-    //             "skuCode": skuCodeArr.join(',')
-    //         };
-	//
-    //         $.post(base_url + "/order/update", paramData, function(data, status) {
-    //             if (data.code == "200") {
-    //                 $('#updateModal').modal('hide');
-	//
-    //                 layer.msg( I18n.system_update_suc );
-    //                 orderListTable.fnDraw();
-    //             } else {
-    //                 layer.open({
-    //                     title: I18n.system_tips ,
-    //                     btn: [ I18n.system_ok ],
-    //                     content: (data.msg || I18n.system_update_fail),
-    //                     icon: '2'
-    //                 });
-    //             }
-    //         });
-	// 	}
-	// });
-	// $("#updateModal").on('hide.bs.modal', function () {
-    //     $("#updateModal .form")[0].reset();
-    //     updateModalValidate.resetForm();
-    //     $("#updateModal .form .form-group").removeClass("has-error");
-    //     $(".remote_panel").show();	// remote
-	//
-    //     $("#updateModal .form input[name=skuCode]").parents('.form-group').show();
-	// });
+
+    // update status
+    $("#updateModal .form input[name=status]").change(function () {
+        var status = $(this).val();
+        if (status == 1) {
+            $("#updateModal .form input[name=skuCode]").parents('.form-group').hide();
+        } else {
+            $("#updateModal .form input[name=skuCode]").parents('.form-group').show();
+        }
+        $("#updateModal .form input[name='skuCode']").prop("checked",false);
+    });
+
+	// update
+	$("#order_list").on('click', '.update',function() {
+
+        var id = $(this).parent('p').attr("id");
+        var row = tableData['key'+id];
+
+		// base data„
+		$("#updateModal .form input[name='id']").val( row.id );
+		$("#updateModal .form input[name='skuName']").val( row.skuName );
+		$("#updateModal .form input[name='password']").val( '' );
+		$("#updateModal .form input[name='status'][value='"+ row.status +"']").click();
+        var skuCodeArr = [];
+        if (row.skuCode) {
+            skuCodeArr = row.skuCode.split(",");
+		}
+        $("#updateModal .form input[name='skuCode']").each(function () {
+            if($.inArray($(this).val(), skuCodeArr) > -1) {
+                $(this).prop("checked",true);
+            } else {
+                $(this).prop("checked",false);
+            }
+        });
+
+		// show
+		$('#updateModal').modal({backdrop: false, keyboard: false}).modal('show');
+	});
+	var updateModalValidate = $("#updateModal .form").validate({
+		errorElement : 'span',
+        errorClass : 'help-block',
+        focusInvalid : true,
+		highlight : function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        success : function(label) {
+            label.closest('.form-group').removeClass('has-error');
+            label.remove();
+        },
+        errorPlacement : function(error, element) {
+            element.parent('div').append(error);
+        },
+        submitHandler : function(form) {
+
+            var skuCodeArr =[];
+            $("#updateModal .form input[name=skuCode]:checked").each(function(){
+                skuCodeArr.push($(this).val());
+            });
+
+            var paramData = {
+                "orderId": $("#updateModal .form input[name=orderId]").val(),
+                "username": $("#updateModal .form input[name=username]").val(),
+                "password": $("#updateModal .form input[name=password]").val(),
+                "status": $("#updateModal .form input[name=status]:checked").val(),
+                "skuCode": skuCodeArr.join(',')
+            };
+
+            $.post(base_url + "/order/update", paramData, function(data, status) {
+                if (data.code == "200") {
+                    $('#updateModal').modal('hide');
+
+                    layer.msg( I18n.system_update_suc );
+                    orderListTable.fnDraw();
+                } else {
+                    layer.open({
+                        title: I18n.system_tips ,
+                        btn: [ I18n.system_ok ],
+                        content: (data.msg || I18n.system_update_fail),
+                        icon: '2'
+                    });
+                }
+            });
+		}
+	});
+	$("#updateModal").on('hide.bs.modal', function () {
+        $("#updateModal .form")[0].reset();
+        updateModalValidate.resetForm();
+        $("#updateModal .form .form-group").removeClass("has-error");
+        $(".remote_panel").show();	// remote
+
+        $("#updateModal .form input[name=skuCode]").parents('.form-group').show();
+	});
 
 });

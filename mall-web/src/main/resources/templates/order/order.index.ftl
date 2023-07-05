@@ -128,56 +128,56 @@
 	</div>
 </div>
 
-<#--<!-- 更新.模态框 &ndash;&gt;-->
-<#--<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">-->
-<#--	<div class="modal-dialog">-->
-<#--		<div class="modal-content">-->
-<#--			<div class="modal-header">-->
-<#--            	<h4 class="modal-title" >${I18n.user_update}</h4>-->
-<#--         	</div>-->
-<#--         	<div class="modal-body">-->
-<#--				<form class="form-horizontal form" role="form" >-->
-<#--                    <div class="form-group">-->
-<#--                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_username}<font color="red">*</font></label>-->
-<#--                        <div class="col-sm-8"><input type="text" class="form-control" name="username" placeholder="${I18n.system_please_input}${I18n.user_username}" maxlength="20" readonly ></div>-->
-<#--                    </div>-->
-<#--                    <div class="form-group">-->
-<#--                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_password}<font color="red">*</font></label>-->
-<#--                        <div class="col-sm-8"><input type="text" class="form-control" name="password" placeholder="${I18n.user_password_update_placeholder}" maxlength="20" ></div>-->
-<#--                    </div>-->
-<#--                    <div class="form-group">-->
-<#--                        <label for="lastname" class="col-sm-2 control-label">订单状态<font color="red">*</font></label>-->
-<#--                        <div class="col-sm-10">-->
-<#--                            <input type="radio" name="status" value="0" />WAIT_SEND-->
-<#--                            &nbsp;&nbsp;&nbsp;&nbsp;-->
-<#--                            <input type="radio" name="status" value="1" />INIT-->
-<#--                        </div>-->
-<#--                    </div>-->
-<#--                    <div class="form-group">-->
-<#--                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_permission}<font color="black">*</font></label>-->
-<#--                        <div class="col-sm-10">-->
-<#--						<#if groupList?exists && groupList?size gt 0>-->
-<#--							<#list groupList as item>-->
-<#--                                <input type="checkbox" name="permission" value="${item.id}" />${item.title}(${item.appname})<br>-->
-<#--							</#list>-->
-<#--						</#if>-->
-<#--                        </div>-->
-<#--                    </div>-->
+<!-- 更新.模态框 -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+            	<h4 class="modal-title" >${I18n.user_update}</h4>
+         	</div>
+         	<div class="modal-body">
+				<form class="form-horizontal form" role="form" >
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_username}<font color="red">*</font></label>
+                        <div class="col-sm-8"><input type="text" class="form-control" name="username" placeholder="${I18n.system_please_input}${I18n.user_username}" maxlength="20" readonly ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_password}<font color="red">*</font></label>
+                        <div class="col-sm-8"><input type="text" class="form-control" name="password" placeholder="${I18n.user_password_update_placeholder}" maxlength="20" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">订单状态<font color="red">*</font></label>
+                        <div class="col-sm-10">
+                            <input type="radio" name="status" value="0" />WAIT_SEND
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="status" value="1" />INIT
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">${I18n.user_permission}<font color="black">*</font></label>
+                        <div class="col-sm-10">
+						<#if groupList?exists && groupList?size gt 0>
+							<#list groupList as item>
+                                <input type="checkbox" name="permission" value="${item.id}" />${item.title}(${item.appname})<br>
+							</#list>
+						</#if>
+                        </div>
+                    </div>
 
-<#--					<hr>-->
-<#--					<div class="form-group">-->
-<#--                        <div class="col-sm-offset-3 col-sm-6">-->
-<#--							<button type="submit" class="btn btn-primary"  >${I18n.system_save}</button>-->
-<#--							<button type="button" class="btn btn-default" data-dismiss="modal">${I18n.system_cancel}</button>-->
-<#--                            <input type="hidden" name="id" >-->
-<#--						</div>-->
-<#--					</div>-->
+					<hr>
+					<div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-6">
+							<button type="submit" class="btn btn-primary"  >${I18n.system_save}</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">${I18n.system_cancel}</button>
+                            <input type="hidden" name="id" >
+						</div>
+					</div>
 
-<#--				</form>-->
-<#--         	</div>-->
-<#--		</div>-->
-<#--	</div>-->
-<#--</div>-->
+				</form>
+         	</div>
+		</div>
+	</div>
+</div>
 
 <@netCommon.commonScript />
 <!-- DataTables -->
