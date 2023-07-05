@@ -71,7 +71,7 @@
 	<header class="main-header">
 		<a href="${request.contextPath}/" class="logo">
 			<span class="logo-mini"><b>XXL</b></span>
-			<span class="logo-lg"><b>${I18n.admin_name}</b></span>
+			<span class="logo-lg"><b>WGP MALL</b></span>
 		</a>
 		<nav class="navbar navbar-static-top" role="navigation">
 

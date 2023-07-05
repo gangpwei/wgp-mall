@@ -135,101 +135,101 @@ $(function() {
 	// 	});
 	// });
 	//
-	// // add status
-    // $("#addModal .form input[name=status]").change(function () {
-	// 	var status = $(this).val();
-	// 	if (status == 1) {
-    //         $("#addModal .form input[name=permission]").parents('.form-group').hide();
-	// 	} else {
-    //         $("#addModal .form input[name=permission]").parents('.form-group').show();
-	// 	}
-    //     $("#addModal .form input[name='permission']").prop("checked",false);
-    // });
-	//
-    // jQuery.validator.addMethod("myValid01", function(value, element) {
-    //     var length = value.length;
-    //     var valid = /^[a-z][a-z0-9]*$/;
-    //     return this.optional(element) || valid.test(value);
-    // }, I18n.order_username_valid );
-	//
-	// // add
-	// $(".add").click(function(){
-	// 	$('#addModal').modal({backdrop: false, keyboard: false}).modal('show');
-	// });
-	// var addModalValidate = $("#addModal .form").validate({
-	// 	errorElement : 'span',
-    //     errorClass : 'help-block',
-    //     focusInvalid : true,
-    //     rules : {
-    //         username : {
-	// 			required : true,
-    //             rangelength:[4, 20],
-    //             myValid01: true
-	// 		},
-    //         password : {
-    //             required : true,
-    //             rangelength:[4, 20]
-    //         }
-    //     },
-    //     messages : {
-    //         username : {
-    //         	required : I18n.system_please_input + I18n.user_username,
-    //             rangelength: I18n.system_lengh_limit + "[4-20]"
-    //         },
-    //         password : {
-    //             required : I18n.system_please_input + I18n.user_password,
-    //             rangelength: I18n.system_lengh_limit + "[4-20]"
-    //         }
-    //     },
-	// 	highlight : function(element) {
-    //         $(element).closest('.form-group').addClass('has-error');
-    //     },
-    //     success : function(label) {
-    //         label.closest('.form-group').removeClass('has-error');
-    //         label.remove();
-    //     },
-    //     errorPlacement : function(error, element) {
-    //         element.parent('div').append(error);
-    //     },
-    //     submitHandler : function(form) {
-	//
-    //         var permissionArr = [];
-    //         $("#addModal .form input[name=permission]:checked").each(function(){
-    //             permissionArr.push($(this).val());
-    //         });
-	//
-	// 		var paramData = {
-	// 			"username": $("#addModal .form input[name=username]").val(),
-    //             "password": $("#addModal .form input[name=password]").val(),
-    //             "status": $("#addModal .form input[name=status]:checked").val(),
-    //             "skuCode": skuCodeArr.join(',')
-	// 		};
-	//
-    //     	$.post(base_url + "/order/add", paramData, function(data, status) {
-    // 			if (data.code == "200") {
-	// 				$('#addModal').modal('hide');
-	//
-    //                 layer.msg( I18n.system_add_suc );
-    //                 orderListTable.fnDraw();
-    // 			} else {
-	// 				layer.open({
-	// 					title: I18n.system_tips ,
-    //                     btn: [ I18n.system_ok ],
-	// 					content: (data.msg || I18n.system_add_fail),
-	// 					icon: '2'
-	// 				});
-    // 			}
-    // 		});
-	// 	}
-	// });
-	// $("#addModal").on('hide.bs.modal', function () {
-	// 	$("#addModal .form")[0].reset();
-	// 	addModalValidate.resetForm();
-	// 	$("#addModal .form .form-group").removeClass("has-error");
-	// 	$(".remote_panel").show();	// remote
-	//
-    //     $("#addModal .form input[name=skuCode]").parents('.form-group').show();
-	// });
+	// add status
+    $("#addModal .form input[name=status]").change(function () {
+		var status = $(this).val();
+		if (status == 1) {
+            $("#addModal .form input[name=permission]").parents('.form-group').hide();
+		} else {
+            $("#addModal .form input[name=permission]").parents('.form-group').show();
+		}
+        $("#addModal .form input[name='permission']").prop("checked",false);
+    });
+
+    jQuery.validator.addMethod("myValid01", function(value, element) {
+        var length = value.length;
+        var valid = /^[a-z][a-z0-9]*$/;
+        return this.optional(element) || valid.test(value);
+    }, I18n.order_username_valid );
+
+	// add
+	$(".add").click(function(){
+		$('#addModal').modal({backdrop: false, keyboard: false}).modal('show');
+	});
+	var addModalValidate = $("#addModal .form").validate({
+		errorElement : 'span',
+        errorClass : 'help-block',
+        focusInvalid : true,
+        rules : {
+            username : {
+				required : true,
+                rangelength:[4, 20],
+                myValid01: true
+			},
+            password : {
+                required : true,
+                rangelength:[4, 20]
+            }
+        },
+        messages : {
+            username : {
+            	required : I18n.system_please_input + I18n.user_username,
+                rangelength: I18n.system_lengh_limit + "[4-20]"
+            },
+            password : {
+                required : I18n.system_please_input + I18n.user_password,
+                rangelength: I18n.system_lengh_limit + "[4-20]"
+            }
+        },
+		highlight : function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        success : function(label) {
+            label.closest('.form-group').removeClass('has-error');
+            label.remove();
+        },
+        errorPlacement : function(error, element) {
+            element.parent('div').append(error);
+        },
+        submitHandler : function(form) {
+
+            var permissionArr = [];
+            $("#addModal .form input[name=permission]:checked").each(function(){
+                permissionArr.push($(this).val());
+            });
+
+			var paramData = {
+				"username": $("#addModal .form input[name=username]").val(),
+                "password": $("#addModal .form input[name=password]").val(),
+                "status": $("#addModal .form input[name=status]:checked").val(),
+                "skuCode": skuCodeArr.join(',')
+			};
+
+        	$.post(base_url + "/order/add", paramData, function(data, status) {
+    			if (data.code == "200") {
+					$('#addModal').modal('hide');
+
+                    layer.msg( I18n.system_add_suc );
+                    orderListTable.fnDraw();
+    			} else {
+					layer.open({
+						title: I18n.system_tips ,
+                        btn: [ I18n.system_ok ],
+						content: (data.msg || I18n.system_add_fail),
+						icon: '2'
+					});
+    			}
+    		});
+		}
+	});
+	$("#addModal").on('hide.bs.modal', function () {
+		$("#addModal .form")[0].reset();
+		addModalValidate.resetForm();
+		$("#addModal .form .form-group").removeClass("has-error");
+		$(".remote_panel").show();	// remote
+
+        $("#addModal .form input[name=skuCode]").parents('.form-group').show();
+	});
 	//
     // // update status
     // $("#updateModal .form input[name=status]").change(function () {

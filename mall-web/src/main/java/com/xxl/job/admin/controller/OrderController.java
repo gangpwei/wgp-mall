@@ -25,18 +25,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/order")
 public class OrderController {
-    //
-    //@Resource
-    //private XxlJobUserDao xxlJobUserDao;
-    //@Resource
-    //private XxlJobGroupDao xxlJobGroupDao;
+
 
     @RequestMapping
     public String index(Model model) {
-
-        //// 执行器列表
-        //List<XxlJobGroup> groupList = xxlJobGroupDao.findAll();
-        //model.addAttribute("groupList", groupList);
 
         return "order/order.index";
     }
@@ -49,7 +41,7 @@ public class OrderController {
 
         // page list
         List<Order> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             Order o = new Order();
             o.setOrderId(System.currentTimeMillis());
             o.setBuyerId(10L);
