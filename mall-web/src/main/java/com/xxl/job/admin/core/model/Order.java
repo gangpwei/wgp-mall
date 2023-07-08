@@ -18,6 +18,7 @@ public class Order {
     private String skuCode;
     private String skuName;
     private BigDecimal price;
+
     private Long buyerId;
 
 }
