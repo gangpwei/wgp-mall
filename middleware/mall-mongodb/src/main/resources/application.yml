@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://fox:fox@127.0.0.1:27017/wgp?authSource=admin

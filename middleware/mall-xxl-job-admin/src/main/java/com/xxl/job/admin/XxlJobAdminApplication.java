@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class XxlJobAdminApplication {
 
 	/**
-	 * 访问地址：http://localhost:8080/xxl-job-admin/
+	 * 访问地址：http://localhost:8050/xxl-job-admin/
 	 * @param args
 	 */
 	public static void main(String[] args) {

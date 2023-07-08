@@ -70,7 +70,7 @@
 <#macro commonHeader>
 	<header class="main-header">
 		<a href="${request.contextPath}/" class="logo">
-			<span class="logo-mini"><b>XXL</b></span>
+			<span class="logo-mini"><b>WGP</b></span>
 			<span class="logo-lg"><b>WGP MALL</b></span>
 		</a>
 		<nav class="navbar navbar-static-top" role="navigation">
@@ -87,7 +87,7 @@
 					<#-- login user -->
                     <li class="dropdown">
                         <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            ${I18n.system_welcome} ${Request["XXL_JOB_LOGIN_IDENTITY"].username}
+<#--                            ${I18n.system_welcome} ${Request["XXL_JOB_LOGIN_IDENTITY"].username}-->
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">

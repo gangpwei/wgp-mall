@@ -12,5 +12,11 @@
 
     <artifactId>mall-mongodb</artifactId>
 
-
+    <dependencies>
+        <!--spring data mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+    </dependencies>
 </project>

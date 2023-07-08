@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MallApplication {
 
 	/**
-	 * 访问地址：http://localhost:8080/mall/
+	 * 访问地址：http://localhost:8080/mall/order
 	 * @param args
 	 */
 	public static void main(String[] args) {
